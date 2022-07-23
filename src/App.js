@@ -1,6 +1,10 @@
+import {Routes, Route} from 'react-router-dom';
+import ContactPage from './pages/ContactPage';
+import HomePage from './pages/HomePage'
 import React from "react";
 import "./App.css";
-import CampsitesList from "./features/campsites/CampsitesList.js";
+import CampsitesDirectoryPage from "./pages/CampsitesDirectoryPage";
+import CampsiteDetailPage from './pages/CampsiteDetailPage';
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
@@ -8,7 +12,12 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <CampsitesList />
+      <Routes>
+        <Route path='/' element={<HomePage/>}/>
+        <Route path='contact' element={<ContactPage/>}/>
+        <Route path='directory' element={<CampsitesDirectoryPage/>}/>
+        <Route path='directory/:campsiteId' element={<CampsiteDetailPage/>}/>
+      </Routes>
       <Footer />
     </div>
   );
